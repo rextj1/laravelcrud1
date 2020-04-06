@@ -1,6 +1,6 @@
 @extends('layouts.appp')
 
-@section('contentt')
+@section('content')
     <h1>Todos</h1>
     @if(count($todos)>0)
         @foreach($todos as $todo)

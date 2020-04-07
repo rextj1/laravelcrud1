@@ -69,22 +69,22 @@ class AlbumsController extends Controller
             if(Storage::delete('public/album_cover/'.$album->cover_image)){
                 $album->delete();
                 // get file name with extension
-        $fileNameWith= $request->file('cover_image')->getClientOriginalName();
-        // get just the file name with the extension
-        $filename= pathinfo($fileNameWith,PATHINFO_FILENAME);
-        // get extension only
-        $extension= $request->file('cover_image')->getClientOriginalExtension();
-        // create new file name with the extension
-        $filenameToStore= $filename.'-'.time().'.'.$extension;
-            //upload image
-        $path= $request->file('cover_image')->storeAs('/public/album_cover', $filenameToStore);
-            
-        // upload image
-        $album->name= $request->get('name');
-        $album->description= $request->get('description');
-        $album->cover_image= $filenameToStore;
-        $album->save();
-        return redirect('/albums')->with('success','Album Updated');
+                $fileNameWith= $request->file('cover_image')->getClientOriginalName();
+                // get just the file name with the extension
+                $filename= pathinfo($fileNameWith,PATHINFO_FILENAME);
+                // get extension only
+                $extension= $request->file('cover_image')->getClientOriginalExtension();
+                // create new file name with the extension
+                $filenameToStore= $filename.'-'.time().'.'.$extension;
+                    //upload image
+                $path= $request->file('cover_image')->storeAs('/public/album_cover', $filenameToStore);
+                    
+                // upload image
+                $album->name= $request->get('name');
+                $album->description= $request->get('description');
+                $album->cover_image= $filenameToStore;
+                $album->save();
+                return redirect('/albums')->with('success','Album Updated');
            }else{
                
                $album->name= $request->get('name');

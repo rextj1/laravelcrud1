@@ -55,8 +55,6 @@ class PhotosController extends Controller
     public function destroy($id){
         $photo= Photo::find($id);
         if(Storage::delete('public/photo/'.$photo->album_id.'/'.$photo->photo)){
-             $photo->delete();
-             unlink('public/photo/'.$photo->album_id);
         }
         return redirect('photos')->with('success','Photo deleted');
     }

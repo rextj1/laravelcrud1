@@ -6,7 +6,7 @@
        @if(count($photos)>0)
             @foreach($photos as $photo)
                 <a href="/photo/{{$photo->id}}">
-                    <img class="img-thumbnail" width="300" height="200" src="storage/photo/{{$photo->album_id}}/{{$photo->photo}}" alt="{{$photo->name}}">
+                    <img class="img-thumbnail" width="300" height="200" src="storage/photo/{{$photo->photo}}" alt="{{$photo->name}}">
                 </a>
             @endforeach
     

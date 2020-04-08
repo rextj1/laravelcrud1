@@ -6,7 +6,7 @@
    
     <a href="/album/{{$photo->album_id}}">Back To Gallery</a>
     <hr>
-    <img class="img-thumbnail" width="300" height="200" src="/storage/photo/{{$photo->album_id}}/{{$photo->photo}}" alt="{{$photo->name}}">
+    <img class="img-thumbnail" width="300" height="200" src="/storage/photo/{{$photo->photo}}" alt="{{$photo->name}}">
 
     
     

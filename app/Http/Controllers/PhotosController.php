@@ -33,7 +33,7 @@ class PhotosController extends Controller
         // create new file name with the extension
         $filenameToStore= $filename.'-'.time().'.'.$extension;
         //upload image
-        $path= $request->file('photo')->storeAs('/public/photo/'.$request->input('album_id'), $filenameToStore);
+        $path= $request->file('photo')->storeAs('/public/photo/', $filenameToStore);
         
         // upload image
         $photo= new Photo;
@@ -54,7 +54,7 @@ class PhotosController extends Controller
 
     public function destroy($id){
         $photo= Photo::find($id);
-        if(Storage::delete('public/photo/'.$photo->album_id.'/'.$photo->photo)){
+        if(Storage::delete('public/photo/'.'/'.$photo->photo)){
             $photo->delete();
         }
         return redirect('photos')->with('success','Photo deleted');
